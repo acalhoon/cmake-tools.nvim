@@ -24,6 +24,7 @@ local Config = {
     generate_options = {},
     build_options = {},
     show_disabled_build_presets = true,
+    force_soft_link = false,
   }, -- general config
   target_settings = {}, -- target specific config
   executor = nil,
@@ -43,6 +44,7 @@ function Config:new(const)
   obj.base_settings.use_preset = const.cmake_use_preset
 
   obj.base_settings.show_disabled_build_presets = const.cmake_show_disabled_build_presets
+  obj.base_settings.force_soft_link = const.cmake_force_soft_link
 
   obj.executor = const.cmake_executor
   obj.runner = const.cmake_runner
@@ -477,4 +479,7 @@ function Config:build_targets_with_sources()
   return _virtual_targets
 end
 
+function Config:is_force_soft_link()
+  return self.base_settings.force_soft_link
+end
 return Config

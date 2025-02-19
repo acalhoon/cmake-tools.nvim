@@ -14,6 +14,7 @@ local const = {
     return "out/${variant:buildType}"
   end, -- this is used to specify generate directory for cmake
   cmake_soft_link_compile_commands = true, -- this will automatically make a soft link from compile commands file to project root dir
+  cmake_force_soft_link = false, -- this will delete an existing compile_commands.json file and replace it with the soft link if `cmake_soft_link_compile_commands' is true
   cmake_compile_commands_from_lsp = false, -- this will automatically set compile commands file location using lsp, to use it, please set `cmake_soft_link_compile_commands` to false
   cmake_kits_path = nil, -- this is used to specify global cmake kits path, see CMakeKits for detailed usage
   cmake_variants_message = {
