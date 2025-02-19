@@ -48,7 +48,8 @@ function utils.mkdir(dir)
   _dir:mkdir({ parents = true, exists_ok = true })
 end
 
-function utils.rmfile(file)
+function utils.rmfile(path)
+  local file = Path:new(path)
   if file:exists() then
     file:rm()
   end

@@ -1285,6 +1285,7 @@ function cmake.compile_commands_from_soft_link()
 
   local source = config:build_directory_path() .. "/compile_commands.json"
   local destination = vim.loop.cwd() .. "/compile_commands.json"
+  utils.rmfile(destination)
   utils.softlink(source, destination)
 end
 
